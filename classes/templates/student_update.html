@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Update Student Info. {% endblock title %}
+
+{% block content %}
+	<form action="{% url 'student-update' student.id %}" method="POST">
+		{% csrf_token %}
+		{{form|crispy}}
+		<input type="submit" value="Update" class="btn btn-block btn-warning">
+	</form>
+{% endblock content %}

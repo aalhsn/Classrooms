@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Add Student{% endblock title %}
+
+{% block content %}
+	<form action="{% url 'student-create' classroom.id %}" method="POST">
+		{% csrf_token %}
+		{{form|crispy}}
+		<input type="submit" value="Create" class="btn btn-block" style="background-color: green; color: white;">
+	</form>
+{% endblock content %}
